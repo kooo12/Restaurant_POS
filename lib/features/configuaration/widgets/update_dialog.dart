@@ -25,6 +25,7 @@ void updateCategory(String initialValue,CategoryController controller,int index)
           TextFormField(
             decoration: const InputDecoration(label: Text(TpsTexts.remark)),
           ),
+          const SizedBox(height: TpsSizes.spaceBtwItems,),
         ],
         
       ),

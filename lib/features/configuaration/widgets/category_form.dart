@@ -13,40 +13,46 @@ class CategoryFormField extends StatelessWidget {
 final CategoryController controller;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 300,
-      child: Form(
-        key: controller.categoryFormKey,
-        child: Column(
-        children: [
-          TextFormField(
-            controller: controller.categoryName,
-            validator: (value){return TpsValidator.validateEmptyText('Category Name', value);},
-            decoration: const InputDecoration(
-              label: Text(TpsTexts.categoryLabel)
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: 300,
+        child: Form(
+          key: controller.categoryFormKey,
+          child: Column(
+          children: [
+            TextFormField(
+              controller: controller.categoryName,
+              validator: (value){return TpsValidator.validateEmptyText('Category Name', value);},
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: TpsColors.grey,
+                label: Text(TpsTexts.categoryLabel)
+              ),
             ),
-          ),
-          const SizedBox(height: TpsSizes.spaceBtwInputFields,),
-          TextFormField(
-            controller: controller.remark,
-            decoration: const InputDecoration(
-              label: Text(TpsTexts.remark)
+            const SizedBox(height: TpsSizes.spaceBtwInputFields,),
+            TextFormField(
+              controller: controller.remark,
+              decoration: const InputDecoration(
+                filled: true,
+                fillColor: TpsColors.grey,
+                label: Text(TpsTexts.remark)
+              ),
             ),
-          ),
-          const SizedBox(height: TpsSizes.spaceBtwInputFields,),
-          Row(
-            children: [
-              Obx(() => Checkbox(value: controller.checkboxValue.value, onChanged: (value){controller.checkboxValue.value = value!;})),
-              Text('Active',style: Theme.of(context).textTheme.bodyLarge,),
-            ],
-          ),
-          const SizedBox(height: TpsSizes.spaceBtwItems,),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(onPressed: () => controller.addCategory()
-            , child: Text('Add Category',style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: TpsColors.white),)))
-        ],
-      )),
+            const SizedBox(height: TpsSizes.spaceBtwInputFields,),
+            Row(
+              children: [
+                Obx(() => Checkbox(value: controller.checkboxValue.value, onChanged: (value){controller.checkboxValue.value = value!;})),
+                Text('Active',style: Theme.of(context).textTheme.bodyLarge,),
+              ],
+            ),
+            const SizedBox(height: TpsSizes.spaceBtwItems,),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(onPressed: () => controller.addCategory()
+              , child: Text('Add Category',style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: TpsColors.white),)))
+          ],
+        )),
+      ),
     );
   }
 }
