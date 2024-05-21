@@ -10,7 +10,7 @@ class TpsHelperFunctions {
     );
   }
 
-  static void showAlert(String title, String message) {
+  static void showAlert(String title, String message, VoidCallback onPressed) {
     showDialog(
       context: Get.context!,
       builder: (BuildContext context) {
@@ -19,8 +19,12 @@ class TpsHelperFunctions {
           content: Text(message),
           actions: [
             TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('OK'),
+              onPressed: () => Get.back(),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: onPressed,
+              child: const Text('Delete'),
             ),
           ],
         );
@@ -28,10 +32,25 @@ class TpsHelperFunctions {
     );
   }
 
-  static void navigateToScreen(BuildContext context, Widget screen) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => screen),
+  static void showUpdateDialog(String title, Widget widget, VoidCallback onPressed) {
+    showDialog(
+      context: Get.context!,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: widget,
+          actions: [
+            TextButton(
+              onPressed: () => Get.back(),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: onPressed,
+              child: const Text('Update'),
+            ),
+          ],
+        );
+      },
     );
   }
 
