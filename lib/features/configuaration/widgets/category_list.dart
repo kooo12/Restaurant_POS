@@ -28,6 +28,7 @@ class CategoryList extends StatelessWidget {
                 child: Card(
                     child: ListTile(
                   title: Text(controller.categories[index]),
+                  subtitle: controller.checkboxValue.value ? Text('Active',style: Theme.of(context).textTheme.bodyMedium,) : null,
                   trailing: IconButton(
                       onPressed: () => TpsHelperFunctions.showAlert(
                           'Delete?',

@@ -17,7 +17,9 @@ class CategoriesConfiguration extends StatelessWidget {
             horizontal: TpsSizes.md, vertical: TpsSizes.defaultSpace),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             // Form Field
             CategoryFormField(controller: controller,),
 
