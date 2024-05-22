@@ -18,23 +18,23 @@ class TpsTextFormFieldTheme {
     floatingLabelStyle:
         const TextStyle().copyWith(color: TpsColors.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.grey),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.grey),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.dark),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.warning),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 2, color: TpsColors.warning),
     ),
   );
@@ -51,23 +51,23 @@ class TpsTextFormFieldTheme {
     floatingLabelStyle:
         const TextStyle().copyWith(color: TpsColors.white.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.darkGrey),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.darkGrey),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.white),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 1, color: TpsColors.warning),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
-      borderRadius: BorderRadius.circular(TpsSizes.inputFieldRadius),
+      borderRadius: BorderRadius.circular(0),
       borderSide: const BorderSide(width: 2, color: TpsColors.warning),
     ),
   );

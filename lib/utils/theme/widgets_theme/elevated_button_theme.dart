@@ -21,7 +21,7 @@ class TpsElevatedButtonTheme {
           color: TpsColors.textWhite,
           fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(TpsSizes.buttonRadius)),
+          borderRadius: BorderRadius.circular(0)),
     ),
   );
 
@@ -40,7 +40,7 @@ class TpsElevatedButtonTheme {
           color: TpsColors.textWhite,
           fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(TpsSizes.buttonRadius)),
+          borderRadius: BorderRadius.circular(0)),
     ),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
+import 'package:restruant_pos/utils/theme/widgets_theme/appbar_theme.dart';
 import 'package:restruant_pos/utils/theme/widgets_theme/checkbox_theme.dart';
 import 'package:restruant_pos/utils/theme/widgets_theme/elevated_button_theme.dart';
 import 'package:restruant_pos/utils/theme/widgets_theme/text_field_theme.dart';
@@ -13,6 +14,7 @@ class TpsTheme {
     brightness: Brightness.light,
     primaryColor: TpsColors.primary,
     textTheme: TpsTextTheme.lightTextTheme,
+    appBarTheme: TpsAppBarTheme.lightAppBarTheme,
     scaffoldBackgroundColor: TpsColors.white,
     elevatedButtonTheme: TpsElevatedButtonTheme.lightElevatedButtonTheme,
     inputDecorationTheme: TpsTextFormFieldTheme.lightInputDecorationTheme,
@@ -24,6 +26,7 @@ class TpsTheme {
     brightness: Brightness.dark,
     primaryColor: TpsColors.primary,
     textTheme: TpsTextTheme.darkTextTheme,
+    appBarTheme: TpsAppBarTheme.darkAppBarTheme,
     scaffoldBackgroundColor: TpsColors.dark,
     elevatedButtonTheme: TpsElevatedButtonTheme.darkElevatedButtonTheme,
     inputDecorationTheme: TpsTextFormFieldTheme.darkInputDecorationTheme,
