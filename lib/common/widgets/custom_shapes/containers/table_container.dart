@@ -16,7 +16,7 @@ class TableContainer extends StatelessWidget {
       decoration: const BoxDecoration(
         color: TpsColors.grey
       ),
-      child: Center(child: Text(tableName,style: Theme.of(context).textTheme.headlineMedium,)),
+      child: Center(child: Text(tableName,style: Theme.of(context).textTheme.titleMedium,)),
     );
   }
 }

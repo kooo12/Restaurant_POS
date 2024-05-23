@@ -4,6 +4,7 @@ class TpsColors{
 
   // App theme Colors
   static const Color primary = Color(0xFF1B3763);
+  static const Color secondary = Color(0xFF3A2CE6);
 
   // Background colors
   static const Color light = Color(0xFFF6F6F6);

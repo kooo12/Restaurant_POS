@@ -23,27 +23,37 @@ class TableDetailsAppBar extends StatelessWidget
           Row(
             children: [
               DropdownMenu(
+                label: const Text('Select Location'),
+                width: 200,
                   inputDecorationTheme: InputDecorationTheme(
                       filled: true,
                       fillColor: dark ? TpsColors.darkerGrey : TpsColors.grey,
                       border: InputBorder.none,
                       outlineBorder: BorderSide.none),
-                  initialSelection: controller.tablesPerFloors.keys.first,
-                  dropdownMenuEntries: controller.tablesPerFloors.keys
-                      .map((key) => DropdownMenuEntry(value: key, label: key))
+                  // initialSelection: controller.selectedFloorIndex.value,
+                  onSelected: (index){
+                    if(index != null) {
+                      controller.setSelectedFloor(index);
+                    }},
+                  dropdownMenuEntries: controller.floors.keys
+                      .map((value) => DropdownMenuEntry(value: value, label: controller.floors[value]!))
                       .toList()),
               const SizedBox(
                 width: TpsSizes.spaceBtwItems,
               ),
-              Text(
-                'Table - 20',
-                style: Theme.of(context).textTheme.titleMedium,
+              Obx(
+                () => Text(
+                  'Table - ${controller.selectedFloor.length}',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
               ),
               const SizedBox(
                 width: TpsSizes.spaceBtwItems,
               ),
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.swap_vert_circle))
+                  onPressed: () => controller.verticalOrder(), icon: const Icon(Icons.swap_vert_circle)),
+              IconButton(
+                  onPressed: () => controller.horizontalOrder(), icon: const Icon(Icons.swap_horizontal_circle)),
             ],
           ),
           Row(
@@ -63,11 +73,10 @@ class TableDetailsAppBar extends StatelessWidget
                       value: controller.sliderValue.value,
                       min: controller.minSliderValue.value,
                       max: controller.maxSliderValue.value,
-                      // divisions: 7,
+                      divisions: 7,
                       label: controller.sliderValue.value.round().toString(),
                       onChanged: (value) {
-                        controller.sliderValue.value = value;
-                        controller.initialRow.value = value.toInt();
+                        controller.sliderChangedValue(value);
                       }),
                   Text(controller.maxSliderValue.toStringAsFixed(0),style: Theme.of(context).textTheme.headlineMedium,),
                 ],

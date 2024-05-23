@@ -17,7 +17,7 @@ class CategoryList extends StatelessWidget {
     return SizedBox(
       width: TpsHelperFunctions.screenWidth() * 0.6,
       child: Obx(
-        () => ListView.builder(
+        () => ListView.separated(
             itemCount: controller.categories.length,
             itemBuilder: (context, index) {
               return GestureDetector(
@@ -25,22 +25,21 @@ class CategoryList extends StatelessWidget {
                   controller.categoryName.text = controller.categories[index];
                   updateCategory(controller.categories[index], controller,index);
                 },
-                child: Card(
-                    child: ListTile(
-                  title: Text(controller.categories[index]),
-                  subtitle: controller.checkboxValue.value ? Text('Active',style: Theme.of(context).textTheme.bodyMedium,) : null,
-                  trailing: IconButton(
-                      onPressed: () => TpsHelperFunctions.showAlert(
-                          'Delete?',
-                          'Are you sure, you want to delete?',
-                          () => controller.deleteCategory(index)),
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      )),
-                )),
+                child: ListTile(
+                                  title: Text(controller.categories[index]),
+                                  subtitle: controller.checkboxValue.value ? Text('Active',style: Theme.of(context).textTheme.bodyMedium,) : null,
+                                  trailing: IconButton(
+                  onPressed: () => TpsHelperFunctions.showAlert(
+                      'Delete?',
+                      'Are you sure, you want to delete?',
+                      () => controller.deleteCategory(index)),
+                  icon: const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  )),
+                                ),
               );
-            }),
+            }, separatorBuilder: (BuildContext context, int index) => const Divider(),),
       ),
     );
   }

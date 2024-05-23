@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
       length: 6,
       child: Scaffold(
         appBar: AppBar(
-          leading: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_ios_new)), // Leading is temporary
           bottom: TabBar(
           indicatorColor: dark ? TpsColors.blue : TpsColors.primary,
           unselectedLabelColor:TpsColors.darkGrey,
