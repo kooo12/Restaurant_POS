@@ -17,6 +17,10 @@ class TableDetailsController extends GetxController {
   var orderVertical = VerticalOrder.topToBottom.obs;
   var orderHorizontal = HorizontalOrder.leftToRight.obs;
 
+  TableDetailsController(){
+    setSelectedFloor(0);
+  }
+
   void sliderChangedValue (double value){
     sliderValue.value = value;
     initialRow.value = value.toInt();

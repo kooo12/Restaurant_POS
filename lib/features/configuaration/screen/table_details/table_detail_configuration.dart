@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/screen/table_grid_view.dart';
-import 'package:restruant_pos/features/configuaration/widgets/table_detail_appbar.dart';
+import 'package:restruant_pos/features/configuaration/screen/table_details/widgets/table_grid_view.dart';
+import 'package:restruant_pos/features/configuaration/screen/table_details/widgets/table_detail_appbar.dart';
 import 'package:restruant_pos/features/configuaration/controller/table_detail_controller.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';

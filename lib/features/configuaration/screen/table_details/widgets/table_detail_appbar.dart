@@ -30,7 +30,7 @@ class TableDetailsAppBar extends StatelessWidget
                       fillColor: dark ? TpsColors.darkerGrey : TpsColors.grey,
                       border: InputBorder.none,
                       outlineBorder: BorderSide.none),
-                  // initialSelection: controller.selectedFloorIndex.value,
+                  initialSelection: controller.selectedFloorIndex.value,
                   onSelected: (index){
                     if(index != null) {
                       controller.setSelectedFloor(index);
