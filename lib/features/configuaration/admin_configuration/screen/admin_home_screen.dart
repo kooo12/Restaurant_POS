@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:restruant_pos/features/configuaration/screen/category_configuration.dart';
-import 'package:restruant_pos/features/configuaration/screen/table_configuration.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/screen/category/category_configuration.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/screen/table_confi/table_configuration.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/helpers/helper_functions.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class AdminHomeScreen extends StatelessWidget {
+  const AdminHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

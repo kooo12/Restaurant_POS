@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restruant_pos/features/configuaration/controller/category_controller.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/controller/category_controller.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';
 import 'package:restruant_pos/utils/helpers/helper_functions.dart';

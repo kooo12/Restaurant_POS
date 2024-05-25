@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/home_screen.dart';
+import 'package:restruant_pos/home.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';
 import 'package:restruant_pos/utils/theme/theme.dart';
 
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       theme: TpsTheme.lightTheme,
       darkTheme: TpsTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const Home(),
     );
   }
 }

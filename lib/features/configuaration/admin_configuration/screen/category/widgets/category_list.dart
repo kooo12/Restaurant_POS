@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/controller/category_controller.dart';
-import 'package:restruant_pos/features/configuaration/screen/category/widgets/update_dialog.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/controller/category_controller.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/screen/category/widgets/update_dialog.dart';
 import 'package:restruant_pos/utils/helpers/helper_functions.dart';
 
 class CategoryList extends StatelessWidget {

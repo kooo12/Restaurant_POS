@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/screen/table_details/widgets/table_grid_view.dart';
-import 'package:restruant_pos/features/configuaration/screen/table_details/widgets/table_detail_appbar.dart';
-import 'package:restruant_pos/features/configuaration/controller/table_detail_controller.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/screen/table_details/widgets/admin_table_grid.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/screen/table_details/widgets/table_detail_appbar.dart';
+import 'package:restruant_pos/features/configuaration/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';
 
@@ -11,36 +11,35 @@ class TableDetailConfiguration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(TableDetailsController());
-   
+    final controller = Get.put(TableController());
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          TpsTexts.tableDetailTitle,
-          style: Theme.of(context).textTheme.headlineMedium,
+        appBar: AppBar(
+          title: Text(
+            TpsTexts.tableDetailTitle,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          centerTitle: true,
+          bottom: TableDetailsAppBar(controller: controller),
         ),
-        centerTitle: true,
-        bottom: TableDetailsAppBar(controller: controller),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:  TpsSizes.defaultSpace, vertical: TpsSizes.sm),
-        child: Center(
-          child: Scrollbar(
-            child: SingleChildScrollView(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: TpsSizes.defaultSpace, vertical: TpsSizes.sm),
+          child: Center(
+            child: Scrollbar(
+              child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
-              child: Scrollbar(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Obx(() => tableGridView(controller)),
+                child: Scrollbar(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Obx(() => adminTableGridView(controller, 150, 150)),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      )
-     
-    );
-  } 
+        ));
+  }
 }
 
 

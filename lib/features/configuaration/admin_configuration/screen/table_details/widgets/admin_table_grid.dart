@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:restruant_pos/common/widgets/custom_shapes/containers/table_container.dart';
-import 'package:restruant_pos/features/configuaration/controller/table_detail_controller.dart';
+import 'package:restruant_pos/features/configuaration/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 
-Widget tableGridView (TableDetailsController controller){
+Widget adminTableGridView (TableController controller,double width,double height){
 
     int rowCount = controller.initialRow.value;
     int columnCount = (controller.selectedFloor.length / rowCount).ceil();
@@ -20,7 +20,7 @@ Widget tableGridView (TableDetailsController controller){
       if(index < controller.selectedFloor.length){
         rowChildren.add(Padding(
           padding: const EdgeInsets.all(TpsSizes.sm),
-          child: TableContainer(tableName: controller.selectedFloor[index], tableColor: TpsColors.grey, borderRadius: 0,),
+          child: TableContainer(tableName: controller.selectedFloor[index], tableColor: TpsColors.grey, borderRadius: 20, width: width, height: height,),
         ));
       }
       else{

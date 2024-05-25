@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 
-class TableDetailsController extends GetxController {
+class TableController extends GetxController {
   final floors = <int,String>{0 :'Floor 1',1 : 'Floor 2'}.obs;
   final selectedFloorIndex = 0.obs;
   final selectedFloor = [].obs;
@@ -17,7 +17,7 @@ class TableDetailsController extends GetxController {
   var orderVertical = VerticalOrder.topToBottom.obs;
   var orderHorizontal = HorizontalOrder.leftToRight.obs;
 
-  TableDetailsController(){
+  TableController(){
     setSelectedFloor(0);
   }
 

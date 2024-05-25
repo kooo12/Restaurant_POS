@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/controller/table_detail_controller.dart';
+import 'package:restruant_pos/features/configuaration/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/device/device_utility.dart';
@@ -10,7 +10,7 @@ class TableDetailsAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   const TableDetailsAppBar({super.key, required this.controller});
 
-  final TableDetailsController controller;
+  final TableController controller;
 
   @override
   Widget build(BuildContext context) {

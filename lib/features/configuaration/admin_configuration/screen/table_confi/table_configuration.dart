@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/screen/table_details/table_detail_configuration.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/screen/table_details/table_detail_configuration.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 
 class TableConfiguration extends StatelessWidget {

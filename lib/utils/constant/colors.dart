@@ -11,6 +11,9 @@ class TpsColors{
   static const Color dark = Color(0xFF272727);
   static const Color primaryBackground = Color(0xFFF3F5FF);
 
+  static const Color tableColor = Color(0xFF61FF00);
+  static const Color tableOccupied = Color(0xFF265D04);
+
   // Text colors
   static const Color textPrimary = Color(0xFF333333);
   static const Color textSecondary = Color(0xFF6C757D);
