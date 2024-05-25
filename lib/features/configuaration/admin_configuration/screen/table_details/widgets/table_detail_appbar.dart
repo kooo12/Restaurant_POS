@@ -17,73 +17,76 @@ class TableDetailsAppBar extends StatelessWidget
     final dark = TpsHelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: TpsSizes.defaultSpace),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              DropdownMenu(
-                label: const Text('Select Location'),
-                width: 200,
-                  inputDecorationTheme: InputDecorationTheme(
-                      filled: true,
-                      fillColor: dark ? TpsColors.darkerGrey : TpsColors.grey,
-                      border: InputBorder.none,
-                      outlineBorder: BorderSide.none),
-                  initialSelection: controller.selectedFloorIndex.value,
-                  onSelected: (index){
-                    if(index != null) {
-                      controller.setSelectedFloor(index);
-                    }},
-                  dropdownMenuEntries: controller.floors.keys
-                      .map((value) => DropdownMenuEntry(value: value, label: controller.floors[value]!))
-                      .toList()),
-              const SizedBox(
-                width: TpsSizes.spaceBtwItems,
-              ),
-              Obx(
-                () => Text(
-                  'Table - ${controller.selectedFloor.length}',
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                DropdownMenu(
+                  label: const Text('Select Location'),
+                  width: 200,
+                    inputDecorationTheme: InputDecorationTheme(
+                        filled: true,
+                        fillColor: dark ? TpsColors.darkerGrey : TpsColors.grey,
+                        border: InputBorder.none,
+                        outlineBorder: BorderSide.none),
+                    initialSelection: controller.selectedFloorIndex.value,
+                    onSelected: (index){
+                      if(index != null) {
+                        controller.setSelectedFloor(index);
+                      }},
+                    dropdownMenuEntries: controller.floors.keys
+                        .map((value) => DropdownMenuEntry(value: value, label: controller.floors[value]!))
+                        .toList()),
+                const SizedBox(
+                  width: TpsSizes.spaceBtwItems,
+                ),
+                Obx(
+                  () => Text(
+                    'Table - ${controller.selectedFloor.length}',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+                const SizedBox(
+                  width: TpsSizes.spaceBtwItems,
+                ),
+                IconButton(
+                    onPressed: () => controller.verticalOrder(), icon: const Icon(Icons.swap_vert_circle)),
+                IconButton(
+                    onPressed: () => controller.horizontalOrder(), icon: const Icon(Icons.swap_horizontal_circle)),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  'Row Count',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
-              ),
-              const SizedBox(
-                width: TpsSizes.spaceBtwItems,
-              ),
-              IconButton(
-                  onPressed: () => controller.verticalOrder(), icon: const Icon(Icons.swap_vert_circle)),
-              IconButton(
-                  onPressed: () => controller.horizontalOrder(), icon: const Icon(Icons.swap_horizontal_circle)),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                'Row Count',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(width: TpsSizes.spaceBtwItems,),
-              Obx(() => Row(
-                children: [
-                  Text(controller.sliderValue.toStringAsFixed(0),style: Theme.of(context).textTheme.headlineMedium,),
-                  Slider(
-                    thumbColor: TpsColors.primary,
-                    activeColor: TpsColors.primary,
-                    inactiveColor: TpsColors.darkGrey,
-                      value: controller.sliderValue.value,
-                      min: controller.minSliderValue.value,
-                      max: controller.maxSliderValue.value,
-                      divisions: 7,
-                      label: controller.sliderValue.value.round().toString(),
-                      onChanged: (value) {
-                        controller.sliderChangedValue(value);
-                      }),
-                  Text(controller.maxSliderValue.toStringAsFixed(0),style: Theme.of(context).textTheme.headlineMedium,),
-                ],
-              ))
-            ],
-          )
-        ],
+                const SizedBox(width: TpsSizes.spaceBtwItems,),
+                Obx(() => Row(
+                  children: [
+                    Text(controller.sliderValue.toStringAsFixed(0),style: Theme.of(context).textTheme.headlineMedium,),
+                    Slider(
+                      thumbColor: TpsColors.primary,
+                      activeColor: TpsColors.primary,
+                      inactiveColor: TpsColors.darkGrey,
+                        value: controller.sliderValue.value,
+                        min: controller.minSliderValue.value,
+                        max: controller.maxSliderValue.value,
+                        divisions: 7,
+                        label: controller.sliderValue.value.round().toString(),
+                        onChanged: (value) {
+                          controller.sliderChangedValue(value);
+                        }),
+                    Text(controller.maxSliderValue.toStringAsFixed(0),style: Theme.of(context).textTheme.headlineMedium,),
+                  ],
+                ))
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

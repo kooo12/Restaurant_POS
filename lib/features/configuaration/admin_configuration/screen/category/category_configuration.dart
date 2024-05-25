@@ -13,37 +13,40 @@ class CategoriesConfiguration extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(CategoryController());
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-            horizontal: TpsSizes.md, vertical: TpsSizes.defaultSpace),
-        child: Stack(
-          children:[
-             Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              
-              // Form Field
-              CategoryFormField(controller: controller,),
-          
-              // Category ListView
-              CategoryList( controller: controller,
-                  ),
-          
-              
-            ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: TpsSizes.md, vertical: TpsSizes.defaultSpace),
+          child: Stack(
+            children:[
+               Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                
+                // Form Field
+                CategoryFormField(controller: controller,),
+            
+                // Category ListView
+                CategoryList( controller: controller,
+                    ),
+            
+                
+              ],
+            ),
+            Positioned(
+              bottom: -11,
+              left: -10,
+              child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.info_rounded,
+                    color: TpsColors.secondary,
+                    size: 40,
+                  )))
+            ]
           ),
-          Positioned(
-            bottom: -11,
-            left: -10,
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.info_rounded,
-                  color: TpsColors.secondary,
-                  size: 40,
-                )))
-          ]
         ),
       ),
     );
