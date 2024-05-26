@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/table_controller/table_controller.dart';
+import 'package:restruant_pos/features/configuaration/global_controller/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/device/device_utility.dart';
@@ -17,48 +18,48 @@ class TableDetailsAppBar extends StatelessWidget
     final dark = TpsHelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: TpsSizes.defaultSpace),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                DropdownMenu(
-                  label: const Text('Select Location'),
-                  width: 200,
-                    inputDecorationTheme: InputDecorationTheme(
-                        filled: true,
-                        fillColor: dark ? TpsColors.darkerGrey : TpsColors.grey,
-                        border: InputBorder.none,
-                        outlineBorder: BorderSide.none),
-                    initialSelection: controller.selectedFloorIndex.value,
-                    onSelected: (index){
-                      if(index != null) {
-                        controller.setSelectedFloor(index);
-                      }},
-                    dropdownMenuEntries: controller.floors.keys
-                        .map((value) => DropdownMenuEntry(value: value, label: controller.floors[value]!))
-                        .toList()),
-                const SizedBox(
-                  width: TpsSizes.spaceBtwItems,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              DropdownMenu(
+                label: const Text('Select Location'),
+                width: 200,
+                  inputDecorationTheme: InputDecorationTheme(
+                      filled: true,
+                      fillColor: dark ? TpsColors.darkerGrey : TpsColors.grey,
+                      border: InputBorder.none,
+                      outlineBorder: BorderSide.none),
+                  initialSelection: controller.selectedFloorIndex.value,
+                  onSelected: (index){
+                    if(index != null) {
+                      controller.setSelectedFloor(index);
+                    }},
+                  dropdownMenuEntries: controller.floors.keys
+                      .map((value) => DropdownMenuEntry(value: value, label: controller.floors[value]!))
+                      .toList()),
+              const SizedBox(
+                width: TpsSizes.spaceBtwItems,
+              ),
+              Obx(
+                () => Text(
+                  'Table - ${controller.selectedFloor.length}',
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                Obx(
-                  () => Text(
-                    'Table - ${controller.selectedFloor.length}',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                ),
-                const SizedBox(
-                  width: TpsSizes.spaceBtwItems,
-                ),
-                IconButton(
-                    onPressed: () => controller.verticalOrder(), icon: const Icon(Icons.swap_vert_circle)),
-                IconButton(
-                    onPressed: () => controller.horizontalOrder(), icon: const Icon(Icons.swap_horizontal_circle)),
-              ],
-            ),
-            Row(
+              ),
+              const SizedBox(
+                width: TpsSizes.spaceBtwItems,
+              ),
+              IconButton(
+                  onPressed: () => controller.verticalOrder(), icon: const Icon(Icons.swap_vert_circle)),
+              IconButton(
+                  onPressed: () => controller.horizontalOrder(), icon: const Icon(Icons.swap_horizontal_circle)),
+            ],
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
               children: [
                 Text(
                   'Row Count',
@@ -84,9 +85,9 @@ class TableDetailsAppBar extends StatelessWidget
                   ],
                 ))
               ],
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
