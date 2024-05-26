@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:restruant_pos/features/configuaration/global_model/table_model/table_model.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 
 class TableController extends GetxController {
@@ -7,8 +8,8 @@ class TableController extends GetxController {
   final selectedFloor = [].obs;
 
   final initialRow = 3.obs;
-  final floor1Tables = List<String>.generate(20, (index) => 'Table ${index + 1}').obs;
-  final floor2Tables = List<String>.generate(30, (index) => 'Table ${index + 1}').obs;
+  final floor1Tables = List<RTable>.generate(20, (index) => RTable(id: index, name: 'Table ${index + 1}', isDefault: true)).obs;
+  final floor2Tables = List<RTable>.generate(30, (index) => RTable(id: index, name: 'Table ${index + 1}', isDefault: false)).obs;
 
   final sliderValue = 3.0.obs;
   final minSliderValue = 3.0.obs;
