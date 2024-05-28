@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/global_controller/table_controller/table_controller.dart';
+import 'package:restruant_pos/features/configuaration/controller/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/device/device_utility.dart';
@@ -35,16 +35,18 @@ class TableDetailsAppBar extends StatelessWidget
                   onSelected: (index){
                     if(index != null) {
                       controller.setSelectedFloor(index);
-                    }},
-                  dropdownMenuEntries: controller.floors.keys
-                      .map((value) => DropdownMenuEntry(value: value, label: controller.floors[value]!))
-                      .toList()),
+                    }}, dropdownMenuEntries: controller.tableConfig.map((floorMap) {
+                      int index = controller.tableConfig.indexOf(floorMap);
+                      var floor = floorMap.values.first;
+                      return DropdownMenuEntry(value: index, label: floor.name);
+                    }).toList(),
+                  ),
               const SizedBox(
                 width: TpsSizes.spaceBtwItems,
               ),
               Obx(
                 () => Text(
-                  'Table - ${controller.selectedFloor.length}',
+                  'Table - ${controller.selectedFloor.value.tables.length}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),

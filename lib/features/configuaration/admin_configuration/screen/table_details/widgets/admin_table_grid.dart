@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restruant_pos/common/widgets/custom_shapes/containers/table_container.dart';
-import 'package:restruant_pos/features/configuaration/table_controller/table_controller.dart';
+import 'package:restruant_pos/features/configuaration/controller/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
@@ -8,7 +8,8 @@ import 'package:restruant_pos/utils/constant/sizes.dart';
 Widget adminTableGridView (TableController controller,double width,double height){
 
     int rowCount = controller.initialRow.value;
-    int columnCount = (controller.selectedFloor.length / rowCount).ceil();
+    int columnCount = (controller.selectedFloor.value.tables.length / rowCount).ceil();
+    List<int> tableIndexes = List<int>.generate(controller.selectedFloor.value.tables.length, (index) => index);
 
     List<Row> row = [];
 
@@ -17,10 +18,13 @@ Widget adminTableGridView (TableController controller,double width,double height
     
     for(int j = 0; j < columnCount; j++){
       int index = j * rowCount + i ;
-      if(index < controller.selectedFloor.length){
+      if(index < tableIndexes.length){
+        int tableIndex = tableIndexes[index];
+        var table = controller.selectedFloor.value.tables[tableIndex];
+
         rowChildren.add(Padding(
           padding: const EdgeInsets.all(TpsSizes.sm),
-          child: TableContainer(tableName: controller.selectedFloor[index], tableColor: TpsColors.grey, borderRadius: 20, width: width, height: height,),
+          child: TableContainer(tableName: table.name, tableColor: TpsColors.grey, borderRadius: 0, width: width, height: height,),
         ));
       }
       else{

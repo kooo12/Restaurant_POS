@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/admin_configuration/controller/category_controller.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/controller1/category_controller1.dart';
 import 'package:restruant_pos/features/configuaration/admin_configuration/screen/category/widgets/category_form.dart';
 import 'package:restruant_pos/features/configuaration/admin_configuration/screen/category/widgets/category_list.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
@@ -11,7 +11,7 @@ class CategoriesConfiguration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(CategoryController());
+    final controller = Get.put(CategoryController1());
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.horizontal,

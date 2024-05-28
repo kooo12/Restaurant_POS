@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restruant_pos/utils/helpers/helper_functions.dart';
 
-class CategoryController extends GetxController {
+class CategoryController1 extends GetxController {
   final checkboxValue = false.obs;
   final categoryName = TextEditingController();
   final remark = TextEditingController();

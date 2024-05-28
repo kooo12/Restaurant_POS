@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restruant_pos/features/configuaration/admin_configuration/screen/table_details/widgets/admin_table_grid.dart';
 import 'package:restruant_pos/features/configuaration/admin_configuration/screen/table_details/widgets/table_detail_appbar.dart';
-import 'package:restruant_pos/features/configuaration/table_controller/table_controller.dart';
+import 'package:restruant_pos/features/configuaration/controller/table_controller/table_controller.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';
 

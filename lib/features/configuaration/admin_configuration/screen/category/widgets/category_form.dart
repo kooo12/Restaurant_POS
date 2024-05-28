@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restruant_pos/features/configuaration/admin_configuration/controller/category_controller.dart';
+import 'package:restruant_pos/features/configuaration/admin_configuration/controller1/category_controller1.dart';
 import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';
@@ -10,7 +10,7 @@ class CategoryFormField extends StatelessWidget {
    const CategoryFormField({
     super.key, required this.controller,
   });
-final CategoryController controller;
+final CategoryController1 controller;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
