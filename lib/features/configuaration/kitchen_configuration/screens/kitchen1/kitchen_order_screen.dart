@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restruant_pos/features/configuaration/kitchen_configuration/controllers/kitchen_order_controller.dart';
@@ -20,10 +19,17 @@ class KitchenOrderScreen extends StatelessWidget {
           children: [
             Flexible(
               flex: 2,
-              child: OrderListView(controller: controller,title: TpsTexts.pending,tableTextStyle: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(color: TpsColors.white) ,orders: controller.pendingOrders, isComplete: false, tableColor: TpsColors.error,),
+              child: OrderListView(
+                controller: controller,
+                title: TpsTexts.pending,
+                tableTextStyle: Theme.of(context)
+                    .textTheme
+                    .headlineMedium!
+                    .copyWith(color: TpsColors.white),
+                orders: controller.pendingOrders,
+                isComplete: false,
+                tableColor: TpsColors.error,
+              ),
             ),
             const VerticalDivider(
               thickness: 3,
@@ -32,12 +38,17 @@ class KitchenOrderScreen extends StatelessWidget {
               endIndent: 20,
             ),
             Flexible(
-              child: OrderListView(controller: controller, title: TpsTexts.complete, tableTextStyle: Theme.of(context).textTheme.headlineMedium!, tableColor: TpsColors.tableColor, orders: controller.completedOrders, isComplete: true,)
-            )
+                child: OrderListView(
+              controller: controller,
+              title: TpsTexts.complete,
+              tableTextStyle: Theme.of(context).textTheme.headlineMedium!,
+              tableColor: TpsColors.tableColor,
+              orders: controller.completedOrders,
+              isComplete: true,
+            ))
           ],
         ),
       ),
     );
   }
 }
-

@@ -34,7 +34,7 @@ class OrderListView extends StatelessWidget {
         Obx(
           () => ListView.separated(
             shrinkWrap: true,
-            itemCount: controller.pendingOrders.length,
+            itemCount: isComplete ? controller.completedOrders.length : controller.pendingOrders.length,
             itemBuilder: (context, index) {
               var order = orders[index];
               var tableName = order.table.name;
