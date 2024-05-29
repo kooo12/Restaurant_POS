@@ -46,7 +46,7 @@ class TableTransferScreen extends StatelessWidget {
                   child: Scrollbar(
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
-                      child: Obx(() => waiterTableGridView(controller,200,120)),
+                      child: Obx(() => waiterTableGridView(controller,200,120,context)),
                     ),
                   ),
                 ),

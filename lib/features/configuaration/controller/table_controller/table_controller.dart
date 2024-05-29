@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:restruant_pos/features/configuaration/model/floor_model/floor_model.dart';
 import 'package:restruant_pos/features/configuaration/model/table_model/table_model.dart';
-import 'package:restruant_pos/features/configuaration/waiter_configurations/order_screen/order_screen.dart';
+import 'package:restruant_pos/features/configuaration/waiter_configurations/screens/order_screen/order_screen.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 
 class TableController extends GetxController {

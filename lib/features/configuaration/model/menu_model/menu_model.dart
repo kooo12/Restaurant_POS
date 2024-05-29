@@ -4,12 +4,16 @@ class MenuModel {
   final int id;
   final String name;
   final int price;
-  final String note; 
+  final String? note; 
+  final bool isUrgent;
+  final bool isComplete;
   MenuModel({
     required this.id,
     required this.name,
     required this.price,
-    required this.note,
+    this.note,
+    this.isUrgent = false,
+    this.isComplete = false,
   });
 
   MenuModel copyWith({
@@ -17,12 +21,16 @@ class MenuModel {
     String? name,
     int? price,
     String? note,
+    bool? isUrgent,
+    bool? isComplete,
   }) {
     return MenuModel(
       id: id ?? this.id,
       name: name ?? this.name,
       price: price ?? this.price,
       note: note ?? this.note,
+      isUrgent: isUrgent ?? this.isUrgent,
+      isComplete: isComplete ?? this.isComplete,
     );
   }
 
@@ -32,7 +40,11 @@ class MenuModel {
     result.addAll({'id': id});
     result.addAll({'name': name});
     result.addAll({'price': price});
-    result.addAll({'note': note});
+    if(note != null){
+      result.addAll({'note': note});
+    }
+    result.addAll({'isUrgent': isUrgent});
+    result.addAll({'isComplete': isComplete});
   
     return result;
   }
@@ -42,7 +54,9 @@ class MenuModel {
       id: map['id']?.toInt() ?? 0,
       name: map['name'] ?? '',
       price: map['price']?.toInt() ?? 0,
-      note: map['note'] ?? '',
+      note: map['note'],
+      isUrgent: map['isUrgent'] ?? false,
+      isComplete: map['isComplete'] ?? false,
     );
   }
 
@@ -52,7 +66,7 @@ class MenuModel {
 
   @override
   String toString() {
-    return 'MenuModel(id: $id, name: $name, price: $price, note: $note)';
+    return 'MenuModel(id: $id, name: $name, price: $price, note: $note, isUrgent: $isUrgent, isComplete: $isComplete)';
   }
 
   @override
@@ -63,7 +77,9 @@ class MenuModel {
       other.id == id &&
       other.name == name &&
       other.price == price &&
-      other.note == note;
+      other.note == note &&
+      other.isUrgent == isUrgent &&
+      other.isComplete == isComplete;
   }
 
   @override
@@ -71,6 +87,8 @@ class MenuModel {
     return id.hashCode ^
       name.hashCode ^
       price.hashCode ^
-      note.hashCode;
+      note.hashCode ^
+      isUrgent.hashCode ^
+      isComplete.hashCode;
   }
 }

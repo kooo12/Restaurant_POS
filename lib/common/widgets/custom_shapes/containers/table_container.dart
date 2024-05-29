@@ -5,7 +5,7 @@ class TableContainer extends StatelessWidget {
     super.key, required this.tableName, required this.tableColor, required this.borderRadius, required this.width, required this.height,
   });
   
-  final String tableName;
+  final Widget tableName;
   final Color tableColor;
   final double borderRadius;
   final double width;
@@ -20,7 +20,7 @@ class TableContainer extends StatelessWidget {
         color: tableColor,
         borderRadius:  BorderRadius.all(Radius.circular(borderRadius))
       ),
-      child: Center(child: Text(tableName,style: Theme.of(context).textTheme.titleMedium,)),
+      child: Center(child: tableName),
     );
   }
 }

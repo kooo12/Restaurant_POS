@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:restruant_pos/features/configuaration/kitchen_configuration/screens/kitchen1/kitchen_order_screen.dart';
 import 'package:restruant_pos/features/configuaration/waiter_configurations/screens/connect.dart';
-import 'package:restruant_pos/features/configuaration/waiter_configurations/screens/menu.dart';
 import 'package:restruant_pos/features/configuaration/waiter_configurations/screens/settings.dart';
-import 'package:restruant_pos/features/configuaration/waiter_configurations/screens/table/table_transfer.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 import 'package:restruant_pos/utils/constant/texts_strings.dart';
 
-class WaiterHomeScreen extends StatelessWidget {
-  const WaiterHomeScreen({super.key});
+class KitchenHomeScreen extends StatelessWidget {
+  const KitchenHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(DrawerController());
     return Scaffold(
-      appBar: AppBar(title: Row(
-        children: [
-          Text('Welcome ${TpsTexts.shopName} : ',style: Theme.of(context).textTheme.headlineSmall,),
-          Text(TpsTexts.userName,style: Theme.of(context).textTheme.headlineMedium,),
-        ],
-      ),),
+      appBar: AppBar(title: Text(TpsTexts.kitchen1,style: Theme.of(context).textTheme.headlineMedium,),centerTitle: true,),
       drawer: SafeArea(
 
         child: Drawer(
@@ -32,7 +26,7 @@ class WaiterHomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Tea Shop',
+                    TpsTexts.shopName,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const DrawerButton()
@@ -41,19 +35,17 @@ class WaiterHomeScreen extends StatelessWidget {
               const SizedBox(
                 height: TpsSizes.spaceBtwSections,
               ),
-              ListTile(
-                title: Text(
-                  'Myat Min Ko',
+              Text(
+                  TpsTexts.kitchen1,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                // onTap: () => controller.selectScreen(),
-              ),
+                
               const SizedBox(
                 height: TpsSizes.spaceBtwSections,
               ),
               ListTile(
                 title: Text(
-                  'Table Transfer',
+                  'Home',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 onTap: () {
@@ -61,23 +53,14 @@ class WaiterHomeScreen extends StatelessWidget {
                   Get.back();
                 },
               ),
-              ListTile(
-                title: Text(
-                  'Menu',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                onTap: () {
-                  controller.selectScreen(1);
-                  Get.back();
-                },
-              ),
+             
               ListTile(
                 title: Text(
                   'Connect',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 onTap: () {
-                  controller.selectScreen(2);
+                  controller.selectScreen(1);
                   Get.back();
                   
                 },
@@ -88,7 +71,7 @@ class WaiterHomeScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 onTap: () {
-                  controller.selectScreen(3);
+                  controller.selectScreen(2);
                   Get.back();
                 },
               ),
@@ -104,10 +87,9 @@ class WaiterHomeScreen extends StatelessWidget {
 class DrawerController extends GetxController {
   final selectedIndex = 0.obs;
   final screens = const [
-    TableTransferScreen(),
-    MenuScreen(),
-    ConnectScreen(),
-    SettingsScreen()
+   KitchenOrderScreen(),
+   ConnectScreen(),
+   SettingsScreen(),
   ].obs;
 
   void selectScreen(int index) {

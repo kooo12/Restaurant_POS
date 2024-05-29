@@ -22,17 +22,17 @@ class OrderScreen extends StatelessWidget {
           Text('MMK 9800',style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: TpsColors.tableColor),)
         ],
       ),),
-      body: Row(
+      body: const Row(
         children: [
           Column(
             children: [
-              Expanded(
-                child: ListView.builder(
+              // Expanded(
+              //   child: ListView.builder(
                   
-                  itemBuilder: (context,index){
+              //     itemBuilder: (context,index){
                     
-                  }),
-              )
+              //     }),
+              // )
             ],
           )
         ],

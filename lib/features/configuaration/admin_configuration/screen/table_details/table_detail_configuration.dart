@@ -32,7 +32,7 @@ class TableDetailConfiguration extends StatelessWidget {
                 child: Scrollbar(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Obx(() => adminTableGridView(controller, 150, 150)),
+                    child: Obx(() => adminTableGridView(controller, 150, 150,context)),
                   ),
                 ),
               ),

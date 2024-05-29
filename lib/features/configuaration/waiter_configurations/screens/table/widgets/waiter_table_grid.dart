@@ -5,7 +5,7 @@ import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 
-Widget waiterTableGridView (TableController controller,double width,double height){
+Widget waiterTableGridView (TableController controller,double width,double height,context){
 
     int rowCount = controller.initialRow.value;
     int columnCount = (controller.selectedFloor.value.tables.length / rowCount).ceil();
@@ -26,7 +26,7 @@ Widget waiterTableGridView (TableController controller,double width,double heigh
           padding: const EdgeInsets.all(TpsSizes.sm),
           child: GestureDetector(
             onTap: () => controller.selectTable(table),
-            child: TableContainer(tableName: table.name, tableColor:TpsColors.tableColor, borderRadius: 20, width: width, height: height,)),
+            child: TableContainer(tableName: Text(table.name,style: Theme.of(context).textTheme.bodyMedium,), tableColor:TpsColors.tableColor, borderRadius: 20, width: width, height: height,)),
         ));
       }
       else{

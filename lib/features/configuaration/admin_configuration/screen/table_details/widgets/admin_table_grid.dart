@@ -5,7 +5,7 @@ import 'package:restruant_pos/utils/constant/colors.dart';
 import 'package:restruant_pos/utils/constant/enums.dart';
 import 'package:restruant_pos/utils/constant/sizes.dart';
 
-Widget adminTableGridView (TableController controller,double width,double height){
+Widget adminTableGridView (TableController controller,double width,double height,context){
 
     int rowCount = controller.initialRow.value;
     int columnCount = (controller.selectedFloor.value.tables.length / rowCount).ceil();
@@ -24,7 +24,7 @@ Widget adminTableGridView (TableController controller,double width,double height
 
         rowChildren.add(Padding(
           padding: const EdgeInsets.all(TpsSizes.sm),
-          child: TableContainer(tableName: table.name, tableColor: TpsColors.grey, borderRadius: 0, width: width, height: height,),
+          child: TableContainer(tableName: Text(table.name,style: Theme.of(context).textTheme.bodyMedium), tableColor: TpsColors.grey, borderRadius: 0, width: width, height: height,),
         ));
       }
       else{
